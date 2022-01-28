@@ -13,48 +13,99 @@ public class Gra{
         int lvl = poziom_Trudnosci();
         kreator();
         dodajPunkty(lvl);
+        stage1();
 
+
+
+
+    }
+    public static void stage1(){
+        System.out.println();
 
 
 
 
     }
 
+
+
+
     public static void dodajPunkty(int punkty){
+        System.out.println("Punkty do rozdania: " + punkty);
         for (int i=0; i<punkty;i++){
-            System.out.println("Punkty do rozdania: " + punkty);
             addPoint();
         }
     }
-    public static void addPoint(){
-        System.out.println("1. Sila: "+Postac.sila);
-        System.out.println("2. Witalnosc: " +Postac.witalnosc);
-        System.out.println("3. Inteligencja: " +Postac.inteligencja);
+    public static void addPoint() {
+        System.out.println("1. Sila: " + Postac.sila);
+        System.out.println("2. Witalnosc: " + Postac.witalnosc);
+        System.out.println("3. Inteligencja: " + Postac.inteligencja);
         System.out.println("4. Zrecznosc: " + Postac.zrecznosc);
-        int odp = scanner.nextInt();
-        switch(odp){
-            case 1:
-                Postac.setSila();
-            case 2:
+        boolean wyjsc = true;
+        while (wyjsc) {
+            int odp = scanner.nextInt();
+            switch (odp) {
+                case 1:
+                    Postac.setSila();
+                    wyjsc = false;
+                    break;
+                case 2:
+                    Postac.setWitalnosc();
+                    wyjsc = false;
+                    break;
+                case 3:
+                    Postac.setInteligencja();
+                    wyjsc = false;
+                    break;
+                case 4:
+                    Postac.setZrecznosc();
+                    wyjsc = false;
+                    break;
+                default:
+                    break;
+
+            }
         }
     }
 
     public static void kreator(){
+        System.out.println("Podaj imie dla swojej postaci: ");
+        String pusty = scanner.nextLine();
+        String nazwa = scanner.nextLine();
+
         System.out.println("Wybierz swoją postać: ");
         System.out.println("1. Mage (int+++)");
         System.out.println("2. Barbarzyńca (sila++ hp+)");
         System.out.println("3. Elf (zwinnosc+++)");
         System.out.println("4. Normalna");
-        int odp = scanner.nextInt();
-        System.out.println("Podaj imie dla swojej postaci: ");
-        String nazwa = scanner.nextLine();
-        switch (odp) {
-            case 1 -> createMage(nazwa);
-            case 2 -> createBarbarian(nazwa);
-            case 3 -> createElf(nazwa);
-            default -> createCasual(nazwa);
-        }
 
+        boolean creator = true;
+        while (creator) {
+            String odp = scanner.nextLine();
+            try {
+                switch (Integer.parseInt(odp)) {
+                    case 1:
+                        createMage(nazwa);
+                        creator = false;
+                        break;
+
+                    case 2:
+                        createBarbarian(nazwa);
+                        creator = false;
+                        break;
+                    case 3:
+                        createElf(nazwa);
+                        creator = false;
+                        break;
+                    default:
+                        creator = false;
+                        createCasual(nazwa);
+                }
+            } catch(Exception X){
+                System.out.println("Podaj wartość od 1 do 4");
+            }
+
+        }
     }
 
 
