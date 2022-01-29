@@ -65,6 +65,7 @@ public class Gra{
         if (result==1){
             addPoint();
             Postac.currentHealth = Postac.maxHealth;
+            System.out.println("Jeszcze tu wrócę! BLOOOOP!");
         }
         else{
             System.exit(0);
