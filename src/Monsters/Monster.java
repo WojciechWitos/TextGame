@@ -13,12 +13,15 @@ public class Monster {
     }
     public int getHealth(){
         return this.currentHealth;
-
+    }
+    public int getSkills(){
+        System.out.println("Skills not defined");
+        return 0;
     }
 
     public void setCurrentHealth(int health){
-        this.currentHealth=health;
-        System.out.println("HP na poziomie: "+this);
+        this.currentHealth=this.currentHealth-health;
+        System.out.println("HP na poziomie: "+this.currentHealth);
     }
     public String getName(){
         return this.name;

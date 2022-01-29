@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Gra{
     static Hero Postac;
     static Scanner scanner = new Scanner(System.in);
-
+    int result;
 
     public static void main(String[] args) {
         int lvl = poziom_Trudnosci();
@@ -46,9 +46,8 @@ public class Gra{
         System.out.println("Jest to mały, niewinny slime, który nagle postanawia się przedstawić");
         System.out.println("Blub... Jestem "+firstEnemy.getName()+" bój się!");
         System.out.println("Co zamierzasz zrobić?");
-        System.out.println("Wyciągasz miecz i rzucasz się na przeciwnika!");
-        System.out.println("Zachowujesz ostrożnośc, przygotowując się do walki.");
-        System.out.println("Slime rzuca się na Ciebie i rozpoczyna się walka!");
+        System.out.println("1. Wyciągasz miecz i rzucasz się na przeciwnika!");
+        System.out.println("2. Zachowujesz ostrożnośc, przygotowując się do walki.");
         question = Hero.odp3();
         switch (question){
             case 1:
@@ -58,8 +57,18 @@ public class Gra{
             default:
                 Postac.setPurity(1);
         }
+        System.out.println("Slime rzuca się na Ciebie i rozpoczyna się walka!");
         System.out.println("Niech rozpocznie się walka!");
         Combat combat1= new Combat(Postac,firstEnemy);
+
+        int result = combat1.Fight();
+        if (result==1){
+            addPoint();
+            Postac.currentHealth = Postac.maxHealth;
+        }
+        else{
+            System.exit(0);
+        }
 
     }
 
@@ -111,10 +120,10 @@ public class Gra{
         String nazwa = scanner.nextLine();
 
         System.out.println("Wybierz swoją postać: ");
-        System.out.println("1. Mage (int+++)");
+        System.out.println("1. Mage (int+++ hp++)");
         System.out.println("2. Barbarzyńca (sila++ hp+)");
         System.out.println("3. Elf (zwinnosc+++)");
-        System.out.println("4. Normalna");
+        System.out.println("4. Casual (witalnosc+++++");
 
         boolean creator = true;
         while (creator) {

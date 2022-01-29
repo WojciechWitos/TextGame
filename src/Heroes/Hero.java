@@ -16,6 +16,9 @@ public class Hero {
     public String getName(){
         return this.name;
     }
+    public void setCurrentHealth(int dmg){
+        this.currentHealth=this.currentHealth-dmg;
+    }
     public void setInteligencja(){
         this.inteligencja ++;
         System.out.println("Inteligencja wzrosla do: "+this.inteligencja);
@@ -72,7 +75,7 @@ public class Hero {
                         return 2;
                 }
             } catch(Exception X){
-                System.out.println("Podaj wartość od 1 do 3");
+                System.out.println("Podaj wartość od 1 do 2");
             }
 
         }
@@ -121,7 +124,7 @@ public class Hero {
                         return 4;
                 }
             } catch(Exception X){
-                System.out.println("Podaj wartość od 1 do 3");
+                System.out.println("Podaj wartość od 1 do 4");
             }
 
         }
@@ -150,7 +153,7 @@ public class Hero {
                         return 5;
                 }
             } catch(Exception X){
-                System.out.println("Podaj wartość od 1 do 3");
+                System.out.println("Podaj wartość od 1 do 5");
             }
 
         }
