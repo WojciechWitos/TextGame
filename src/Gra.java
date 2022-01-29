@@ -20,7 +20,7 @@ public class Gra{
 
     }
     public static void stage1(){
-        System.out.println();
+        System.out.println("");
 
 
 

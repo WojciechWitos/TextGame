@@ -15,4 +15,9 @@ public class Monster {
         this.currentHealth=health;
         System.out.println("HP na poziomie: "+this);
     }
+
+    public void skillset(){
+        System.out.println("Not implemented in basic Monster");
+
+    }
 }

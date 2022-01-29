@@ -2,7 +2,7 @@ package Heroes;
 
 public class Hero {
     String name;
-    public int inteligencja, zrecznosc, witalnosc, sila, exp;
+    public int inteligencja, zrecznosc, witalnosc, sila, exp, purity;
     public Hero(){
         this.name ="NoName";
         this.inteligencja = 0;
@@ -10,6 +10,7 @@ public class Hero {
         this.witalnosc = 0;
         this.sila = 0;
         this.exp = 0;
+        this.purity = 0;
     }
 
     public void setInteligencja(){
@@ -32,6 +33,13 @@ public class Hero {
     }
     public void setExp(int exp){
         this.exp=this.exp+exp;
+        System.out.println("Otrzymałeś "+exp+" doświadczenia.");
+        System.out.println("Teraz posiadasz " + this.exp);
+    }
+
+
+    public void setPurity(int pur){
+        this.purity += pur;
     }
     public void tworzenie(){
         System.out.println("Stworzyles postac o imieniu: " +this.name);
