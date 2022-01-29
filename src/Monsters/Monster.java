@@ -11,6 +11,11 @@ public class Monster {
         this.armor = armor;
         this.magicResistance = magicResistance;
     }
+    public int getHealth(){
+        return this.currentHealth;
+
+    }
+
     public void setCurrentHealth(int health){
         this.currentHealth=health;
         System.out.println("HP na poziomie: "+this);

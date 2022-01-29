@@ -4,23 +4,21 @@ import Heroes.Hero;
 import Heroes.Mage;
 import Heroes.Casual;
 import Monsters.Slime;
-
 import java.util.Scanner;
 
 public class Gra{
     static Hero Postac;
     static Scanner scanner = new Scanner(System.in);
 
+
     public static void main(String[] args) {
         int lvl = poziom_Trudnosci();
         kreator();
         dodajPunkty(lvl);
         stage1();
-
-
-
-
     }
+
+
     public static void stage1(){
         Slime firstEnemy = new Slime("Mała Bestia",20,2,0,0,0,0);
         System.out.println("Cześć " + Postac.getName() + " witaj w wielkim labiryncie,");
@@ -31,7 +29,7 @@ public class Gra{
         System.out.println("1. Tak!");
         System.out.println("2. Nie! Chcę do domu!");
         System.out.println("3. Nie wiem, ale spróbuję się jej podjąć! Ahoj przygodo!");
-        int question = odp3();
+        int question = Hero.odp3();
         System.out.println(question);
         switch (question){
             case 1:
@@ -51,7 +49,7 @@ public class Gra{
         System.out.println("Wyciągasz miecz i rzucasz się na przeciwnika!");
         System.out.println("Zachowujesz ostrożnośc, przygotowując się do walki.");
         System.out.println("Slime rzuca się na Ciebie i rozpoczyna się walka!");
-        question = odp3();
+        question = Hero.odp3();
         switch (question){
             case 1:
                 Postac.setPurity(1);
@@ -105,75 +103,6 @@ public class Gra{
             }
 
         }
-    }
-    public static int odp2(){
-        boolean creator = true;
-        while (creator) {
-            String odp = scanner.nextLine();
-            try {
-                switch (Integer.parseInt(odp)) {
-                    case 1:
-                        creator = false;
-                        return 1;
-                    default:
-                        creator = false;
-                        return 2;
-                }
-            } catch(Exception X){
-                System.out.println("Podaj wartość od 1 do 3");
-            }
-
-        }
-        return 0;
-    }
-    public static int odp3(){
-        boolean creator = true;
-        while (creator) {
-            String odp = scanner.nextLine();
-            try {
-                switch (Integer.parseInt(odp)) {
-                    case 1:
-                        creator = false;
-                        return 1;
-                    case 2:
-                        creator = false;
-                        return 2;
-                    default:
-                        creator = false;
-                        return 3;
-                }
-            } catch(Exception X){
-                System.out.println("Podaj wartość od 1 do 3");
-            }
-
-        }
-        return 0;
-    }
-    public static int odp4(){
-        boolean creator = true;
-        while (creator) {
-            String odp = scanner.nextLine();
-            try {
-                switch (Integer.parseInt(odp)) {
-                    case 1:
-                        creator = false;
-                        return 1;
-                    case 2:
-                        creator = false;
-                        return 2;
-                    case 3:
-                        creator = false;
-                        return 3;
-                    default:
-                        creator = false;
-                        return 4;
-                }
-            } catch(Exception X){
-                System.out.println("Podaj wartość od 1 do 3");
-            }
-
-        }
-        return 0;
     }
 
     public static void kreator(){
