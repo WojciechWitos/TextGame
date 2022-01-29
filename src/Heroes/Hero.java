@@ -2,7 +2,7 @@ package Heroes;
 
 public class Hero {
     String name;
-    public int inteligencja, zrecznosc, witalnosc, sila, exp, purity;
+    public int inteligencja, zrecznosc, witalnosc, sila, exp, purity,phisicalDamage,magicDamage,maxHealth,currentHealth;
     public Hero(){
         this.name ="NoName";
         this.inteligencja = 0;
@@ -12,7 +12,9 @@ public class Hero {
         this.exp = 0;
         this.purity = 0;
     }
-
+    public String getName(){
+        return this.name;
+    }
     public void setInteligencja(){
         this.inteligencja ++;
         System.out.println("Inteligencja wzrosla do: "+this.inteligencja);
@@ -22,10 +24,8 @@ public class Hero {
         System.out.println("Zrecznosc wzrosla do: "+this.zrecznosc);
     }
     public void setWitalnosc(){
-        this.witalnosc++;
-        System.out.println("Witalność wzrosla do: "+this.witalnosc);
+        System.out.println("Not implemented yet");}
 
-    }
     public void setSila(){
         this.sila++;
         System.out.println("Sila wzrosla do: "+this.sila);
@@ -36,7 +36,7 @@ public class Hero {
         System.out.println("Otrzymałeś "+exp+" doświadczenia.");
         System.out.println("Teraz posiadasz " + this.exp);
     }
-
+    
 
     public void setPurity(int pur){
         this.purity += pur;

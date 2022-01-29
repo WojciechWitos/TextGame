@@ -3,6 +3,8 @@ import Heroes.Elf;
 import Heroes.Hero;
 import Heroes.Mage;
 import Heroes.Casual;
+import Monsters.Slime;
+
 import java.util.Scanner;
 
 public class Gra{
@@ -20,10 +22,46 @@ public class Gra{
 
     }
     public static void stage1(){
-        System.out.println("");
-
-
-
+        Slime firstEnemy = new Slime("Mała Bestia",20,2,0,0,0,0);
+        System.out.println("Cześć " + Postac.getName() + " witaj w wielkim labiryncie,");
+        System.out.println("Na jego końcu czeka Cię wielka nagroda, ale strzeż się.");
+        System.out.println("Labirynt jest wypełniony wszelakiej maści silnymi potworami,");
+        System.out.println("Którym musisz stawić czoła.");
+        System.out.println("Czy jesteś gotów na tę przygodę?");
+        System.out.println("1. Tak!");
+        System.out.println("2. Nie! Chcę do domu!");
+        System.out.println("3. Nie wiem, ale spróbuję się jej podjąć! Ahoj przygodo!");
+        int question = odp3();
+        System.out.println(question);
+        switch (question){
+            case 1:
+                Postac.setPurity(-1);
+                System.out.println("Pewny siebie wchodzisz, po czym drzwi zamykają się, a Ty ochoczo idziesz dalej. ");
+            case 2:
+                Postac.setPurity(2);
+                System.out.println("Drzwi zatrzaskują się za Tobą i pozostajesz tylko Ty i otchłań labiryntu.");
+            default:
+                Postac.setPurity(1);
+                System.out.println("Lekki podmuch przesuwa Cię do przodu a drzwi zamykają się.");
+        }
+        System.out.println("Po kilku minutach podróży natrafiasz na pierwszego przeciwnika.");
+        System.out.println("Jest to mały, niewinny slime, który nagle postanawia się przedstawić");
+        System.out.println("Blub... Jestem "+firstEnemy.getName()+" bój się!");
+        System.out.println("Co zamierzasz zrobić?");
+        System.out.println("Wyciągasz miecz i rzucasz się na przeciwnika!");
+        System.out.println("Zachowujesz ostrożnośc, przygotowując się do walki.");
+        System.out.println("Slime rzuca się na Ciebie i rozpoczyna się walka!");
+        question = odp3();
+        switch (question){
+            case 1:
+                Postac.setPurity(1);
+            case 2:
+                Postac.setPurity(2);
+            default:
+                Postac.setPurity(1);
+        }
+        System.out.println("Niech rozpocznie się walka!");
+        Combat combat1= new Combat(Postac,firstEnemy);
 
     }
 
@@ -65,7 +103,77 @@ public class Gra{
                     break;
 
             }
+
         }
+    }
+    public static int odp2(){
+        boolean creator = true;
+        while (creator) {
+            String odp = scanner.nextLine();
+            try {
+                switch (Integer.parseInt(odp)) {
+                    case 1:
+                        creator = false;
+                        return 1;
+                    default:
+                        creator = false;
+                        return 2;
+                }
+            } catch(Exception X){
+                System.out.println("Podaj wartość od 1 do 3");
+            }
+
+        }
+        return 0;
+    }
+    public static int odp3(){
+        boolean creator = true;
+        while (creator) {
+            String odp = scanner.nextLine();
+            try {
+                switch (Integer.parseInt(odp)) {
+                    case 1:
+                        creator = false;
+                        return 1;
+                    case 2:
+                        creator = false;
+                        return 2;
+                    default:
+                        creator = false;
+                        return 3;
+                }
+            } catch(Exception X){
+                System.out.println("Podaj wartość od 1 do 3");
+            }
+
+        }
+        return 0;
+    }
+    public static int odp4(){
+        boolean creator = true;
+        while (creator) {
+            String odp = scanner.nextLine();
+            try {
+                switch (Integer.parseInt(odp)) {
+                    case 1:
+                        creator = false;
+                        return 1;
+                    case 2:
+                        creator = false;
+                        return 2;
+                    case 3:
+                        creator = false;
+                        return 3;
+                    default:
+                        creator = false;
+                        return 4;
+                }
+            } catch(Exception X){
+                System.out.println("Podaj wartość od 1 do 3");
+            }
+
+        }
+        return 0;
     }
 
     public static void kreator(){
