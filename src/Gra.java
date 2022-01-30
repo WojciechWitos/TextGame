@@ -17,34 +17,39 @@ public class Gra {
         stage3();
         stage4();
         stage5();
+        stage6();
+
     }
-
-    
-
-    public static void stage5() {
+    public static void stage6() {
         int question;
-        LittleDemon thirdEnemy = new LittleDemon("Potężny robak", 120, 150, 20, 0, 0, 0);
-        System.out.println("Po odejściu od zwłok nagle słyszysz jakby coś krązyło i skrzeczało pod sufitem.");
-        System.out.println("Po chwili widzisz wielkiego orła pikującego w Twoim kierunku z wygłodniałym wściekłym wzrokiem.");
-        System.out.println("Okazało się ze wilk którego spożywasz chwile wcześniej pożywił sie jajami orlicy,która nie jest zadowolona i obwinia Ciebie za skonsumowanie jej potomstywa.");
-        System.out.println("Dodatkowo nie widziała świeżego mięsa od pół roku..");
-        System.out.println("Bitwa od razu się rozpoczyna!");
-        Combat combat4 = new Combat(Postac, thirdEnemy);
+        LittleDemon fifthEnemy = new LittleDemon("Lilith -Świetlisty Demon", 180, 200, 15, 0, 0, 0);
+        System.out.println("Pokonałeś ostatniego wroga, czujesz jak ciepłe światło ogrzewa twe policzki.");
+        System.out.println("Widzisz rozświetlone drzwi, zbliżasz się do nich, a pewna postura zakrywa blask.");
+        System.out.println("Twoim oczom pojawia się humanoidalna postać.");
+        wait(2000);
+        System.out.println("Cześć, jestem Lilith, wysłannik piekieł, zapewne interesuje Cię co jest za drzwiami. ");
+        System.out.println("A słyszałeś może powiedzenie, że ciekawość to pierwszy stopień do piekła?:)");
 
+        System.out.println("Szykuj się do walki, jeżeli chcesz przejść dalej!");
+        Combat combat4 = new Combat(Postac, fifthEnemy);
         int result = combat4.Fight();
         if (result == 2) {
-            addPoint();
+            for(int i=0; i<10;i++) {
+                addPoint();
+            }
             Postac.currentHealth = Postac.maxHealth;
-            System.out.println("Ptaszysko pada martwe u twych stóp");
+            System.out.println("Postać pada na twarz, uśmiechając się szyderczo mówi:");
+            System.out.println("Na końcu czeka Cię śmierć, śmierć i tylko śmierć, mój Pan nie zna litości!");
+            System.out.println("To ostatnia chwila, abyś mógł uciec.");
 
             question = Hero.odp3();
+            System.out.println("1. Przechodzisz omijajac powoli demona w strachu przed możliwymi klątwami.");
+            System.out.println("2. Kopiesz demona i przesz przed siebie");
+            System.out.println("3. Przerażony uciekasz w popłochu.");
 
-            System.out.println("1. Postanawiasz wyrwac piura ze zwłok orła umieszczając je w swoim ubiorze.");
-            System.out.println("2. Podpalasz kolejną ofiarę, nie chcąc aby zapach jej zwłok sprowadził kolejne kłopoty.");
-            System.out.println("3. Uciekasz czym prędzej.");
             switch (question) {
                 case 1:
-                    Postac.setPurity(-2);
+                    Postac.setPurity(-5);
                     Postac.setSila();
                     Postac.setWitalnosc();
                 case 2:
@@ -52,18 +57,72 @@ public class Gra {
                     Postac.setInteligencja();
                     Postac.setWitalnosc();
                 default:
-                    Postac.setPurity(2);
-                    Postac.setInteligencja();
-                    Postac.setZrecznosc();
+                    System.exit(0);
             }
         }
         else if (result == 1) {
-            System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
-            System.out.println("Wielki bohater poległ na czwartej przeszkodzie, niedaleko swego celu, widząc nieopodal drzwi.");
+            System.out.println("Koniec się zbliża, pocieszasz się myślą, że bestia z którą walczyłeś umarła.");
+            System.out.println("Jednak nie do końca, słyszysz od niej słowa: ");
+            System.out.println("Jestem: "+fifthEnemy.getName()+" zginąć z twoich rąk.");
+
 
         } else {
-            System.out.println("Zaszedłeś już tak daleko, wiedziałeś, że twoja podróż już miała się niedługo zakończyć.");
-            System.out.println("Niestety, kończy się tu i teraz, odchodzisz z tego świata z łzami w oczach.");
+            System.out.println("Tak blisko celu, wręcz o krok od opuszczenia tego piekielnego miejsca.");
+            System.out.println("Niestety, kończy się tu i teraz twoja przygoda, odchodzisz z tego świata z łzami w oczach.");
+            System.exit(0);
+        }
+    }
+
+
+    public static void stage5() {
+        int question;
+        LittleDemon fifthEnemy = new LittleDemon("Lilith -Świetlisty Demon", 180, 200, 15, 0, 0, 0);
+        System.out.println("Pokonałeś ostatniego wroga, czujesz jak ciepłe światło ogrzewa twe policzki.");
+        System.out.println("Widzisz rozświetlone drzwi, zbliżasz się do nich, a pewna postura zakrywa blask.");
+        System.out.println("Twoim oczom pojawia się humanoidalna postać.");
+        wait(2000);
+        System.out.println("Cześć, jestem Lilith, wysłannik piekieł, zapewne interesuje Cię co jest za drzwiami. ");
+        System.out.println("A słyszałeś może powiedzenie, że ciekawość to pierwszy stopień do piekła?:)");
+
+        System.out.println("Szykuj się do walki, jeżeli chcesz przejść dalej!");
+        Combat combat4 = new Combat(Postac, fifthEnemy);
+        int result = combat4.Fight();
+        if (result == 2) {
+            for(int i=0; i<10;i++) {
+                addPoint();
+            }
+            Postac.currentHealth = Postac.maxHealth;
+            System.out.println("Postać pada na twarz, uśmiechając się szyderczo mówi:");
+            System.out.println("Na końcu czeka Cię śmierć, śmierć i tylko śmierć, mój Pan nie zna litości!");
+            System.out.println("To ostatnia chwila, abyś mógł uciec.");
+
+            question = Hero.odp3();
+            System.out.println("1. Przechodzisz omijajac powoli demona w strachu przed możliwymi klątwami.");
+            System.out.println("2. Kopiesz demona i przesz przed siebie");
+            System.out.println("3. Przerażony uciekasz w popłochu.");
+
+            switch (question) {
+                case 1:
+                    Postac.setPurity(-5);
+                    Postac.setSila();
+                    Postac.setWitalnosc();
+                case 2:
+                    Postac.setPurity(5);
+                    Postac.setInteligencja();
+                    Postac.setWitalnosc();
+                default:
+                    System.exit(0);
+            }
+        }
+        else if (result == 1) {
+            System.out.println("Koniec się zbliża, pocieszasz się myślą, że bestia z którą walczyłeś umarła.");
+            System.out.println("Jednak nie do końca, słyszysz od niej słowa: ");
+            System.out.println("Jestem: "+fifthEnemy.getName()+" zginąć z twoich rąk.");
+
+
+        } else {
+            System.out.println("Tak blisko celu, wręcz o krok od opuszczenia tego piekielnego miejsca.");
+            System.out.println("Niestety, kończy się tu i teraz twoja przygoda, odchodzisz z tego świata z łzami w oczach.");
             System.exit(0);
         }
     }
@@ -71,7 +130,7 @@ public class Gra {
 
     public static void stage4() {
         int question;
-        Eagle thirdEnemy = new Eagle("Potężny robak", 120, 150, 20, 0, 0, 0);
+        Eagle thirdEnemy = new Eagle("Latająca bestia", 120, 150, 20, 0, 0, 0);
         System.out.println("Po odejściu od zwłok nagle słyszysz jakby coś krązyło i skrzeczało pod sufitem.");
         System.out.println("Po chwili widzisz wielkiego orła pikującego w Twoim kierunku z wygłodniałym wściekłym wzrokiem.");
         System.out.println("Okazało się ze wilk którego spożywasz chwile wcześniej pożywił sie jajami orlicy,która nie jest zadowolona i obwinia Ciebie za skonsumowanie jej potomstywa.");
@@ -118,7 +177,7 @@ public class Gra {
     }
 
     public static void stage3() {
-        Wolf thirdEnemy = new Wolf("Potężny robak", 100, 100, 10, 0, 0, 0);
+        Wolf thirdEnemy = new Wolf("Białooki wilk", 100, 100, 10, 0, 0, 0);
         System.out.println("Wychodzisz z walki zwycięsko, cieszysz się, że przeżyłeś, zastanawiając się, co czeka Cię dalej.");
         System.out.println("Wielki labirynt może zaskoczyć pod każdym względem.");
         System.out.println("Dopada Cię burczenie w brzuchu, a jedyne co może zostać przez Ciebie skonsumowane, to zwłoki wilka, który stoi tuż przed Tobą");
