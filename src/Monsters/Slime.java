@@ -1,6 +1,7 @@
 package Monsters;
-import java.util.concurrent.ThreadLocalRandom;
+import java.util.Random;
 public class Slime extends Monster {
+    Random random = new Random();
     int lvlEnemy;
     public Slime(String name, int currentHealth, int maxHealth, int attack, int armor, int magicResistance, int lvlStage) {
         super(name, currentHealth, maxHealth, attack, armor, magicResistance);
@@ -8,11 +9,8 @@ public class Slime extends Monster {
 
 
     }
-    public Slime(String name,int currentHealth, int maxHealth, int attack, int armor, int magicResistance) {
-        super(name, currentHealth, maxHealth, attack, armor, magicResistance);
-    }
     public int getSkills(){
-        int randomAttack = ThreadLocalRandom.current().nextInt(1,2);
+        int randomAttack = random.nextInt(1,3);
         if (randomAttack ==1){
             System.out.println("Slime gryzie Cię w piętę zadając 2 obrażenia.");
             return 2;

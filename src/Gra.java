@@ -3,8 +3,10 @@ import Heroes.Elf;
 import Heroes.Hero;
 import Heroes.Mage;
 import Heroes.Casual;
-import Monsters.Slime;
 import java.util.Scanner;
+import Monsters.Slime;
+import Monsters.Worm;
+
 
 public class Gra{
     static Hero Postac;
@@ -17,6 +19,69 @@ public class Gra{
         dodajPunkty(lvl);
         stage1();
     }
+    public static void stage2(){
+        Worm secondEnemy = new Worm("Potężny robak", 50,100,50,0,0,0);
+        System.out.println("");
+        System.out.println("Na jego końcu czeka Cię wielka nagroda, ale strzeż się.");
+        System.out.println("Labirynt jest wypełniony wszelakiej maści silnymi potworami,");
+        System.out.println("Którym musisz stawić czoła.");
+        System.out.println("Czy jesteś gotów na tę przygodę?");
+        System.out.println("1. Tak!");
+        System.out.println("2. Nie! Chcę do domu!");
+        System.out.println("3. Nie wiem, ale spróbuję się jej podjąć! Ahoj przygodo!");
+        int question = Hero.odp3();
+        System.out.println(question);
+        switch (question){
+            case 1:
+                Postac.setWitalnosc();
+                System.out.println("Pewny siebie wchodzisz, po czym drzwi zamykają się, a Ty ochoczo idziesz dalej. ");
+            case 2:
+                Postac.setZrecznosc();
+                System.out.println("Drzwi zatrzaskują się za Tobą i pozostajesz tylko Ty i otchłań labiryntu.");
+            default:
+                Postac.setInteligencja();
+                System.out.println("Lekki podmuch przesuwa Cię do przodu a drzwi zamykają się.");
+        }
+        System.out.println("Po kilku minutach podróży natrafiasz na pierwszego przeciwnika.");
+        System.out.println("Jest to mały, niewinny slime, który nagle postanawia się przedstawić");
+        System.out.println("Blub... Jestem "+secondEnemy.getName()+" bój się!");
+        System.out.println("Co zamierzasz zrobić?");
+        System.out.println("1. Wyciągasz miecz i rzucasz się na przeciwnika!");
+        System.out.println("2. Zachowujesz ostrożnośc, przygotowując się do walki.");
+        question = Hero.odp3();
+        switch (question){
+            case 1:
+                Postac.setPurity(1);
+            case 2:
+                Postac.setPurity(2);
+            default:
+                Postac.setPurity(1);
+        }
+        System.out.println("Slime rzuca się na Ciebie i rozpoczyna się walka!");
+        System.out.println("Niech rozpocznie się walka!");
+        Combat combat2= new Combat(Postac,secondEnemy);
+
+        int result = combat2.Fight();
+        if (result==2){
+            addPoint();
+            Postac.currentHealth = Postac.maxHealth;
+            System.out.println("Jeszcze tu wrócę! BLOOOOP!");
+            System.out.println("Slime rozpływa się i znika w powietrzu.");
+        }
+        else if (result == 1){
+            System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
+            System.out.println("Wielki bohater poległ już na pierwszej przeszkodzie.");
+
+        }
+        else{
+            System.out.println("Jako bohater, który dopiero zaczął swoją przygodę odchodzisz w zaświaty bez sławy i chwały.");
+            System.out.println("Aż prosi się o słowa 'Tak bardzo się starałeś, lecz z gry wyleciałeś :) '");
+            System.exit(0);
+        }
+
+    }
+
+
 
 
     public static void stage1(){
@@ -33,13 +98,13 @@ public class Gra{
         System.out.println(question);
         switch (question){
             case 1:
-                Postac.setPurity(-1);
+                Postac.setWitalnosc();
                 System.out.println("Pewny siebie wchodzisz, po czym drzwi zamykają się, a Ty ochoczo idziesz dalej. ");
             case 2:
-                Postac.setPurity(2);
+                Postac.setZrecznosc();
                 System.out.println("Drzwi zatrzaskują się za Tobą i pozostajesz tylko Ty i otchłań labiryntu.");
             default:
-                Postac.setPurity(1);
+                Postac.setInteligencja();
                 System.out.println("Lekki podmuch przesuwa Cię do przodu a drzwi zamykają się.");
         }
         System.out.println("Po kilku minutach podróży natrafiasz na pierwszego przeciwnika.");
@@ -74,6 +139,8 @@ public class Gra{
 
         }
         else{
+            System.out.println("Jako bohater, który dopiero zaczął swoją przygodę odchodzisz w zaświaty bez sławy i chwały.");
+            System.out.println("Aż prosi się o słowa 'Tak bardzo się starałeś, lecz z gry wyleciałeś :) '");
             System.exit(0);
         }
 
