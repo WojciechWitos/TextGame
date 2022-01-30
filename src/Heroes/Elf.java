@@ -8,15 +8,15 @@ public class Elf extends Hero{
         this.witalnosc = 4;
         this.sila = 2;
         this.exp = 0;
-        this.phisicalDamage = this.sila*3;
+        this.phisicalDamage = this.sila*2;
         this.magicDamage = this.inteligencja*2;
-        this.maxHealth = this.witalnosc*3;
+        this.maxHealth = this.witalnosc*2;
         this.currentHealth = this.witalnosc*3;
         this.tworzenie();
     }
     public void setSila(){
         this.sila++;
-        this.phisicalDamage = this.sila*3;
+        this.phisicalDamage = this.sila*2;
         System.out.println("Sila wzrosla do: "+this.sila);
     }
     public void setInteligencja(){
@@ -31,9 +31,9 @@ public class Elf extends Hero{
         setMaxHealth();}
 
     public void setMaxHealth(){
-        this.maxHealth = this.witalnosc*3;
+        this.maxHealth = this.witalnosc*2;
         this.currentHealth = this.maxHealth;
-        System.out.println("Twoje Max HP wzrosło do:" +this.maxHealth);
+        System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
     public int getSkills(){
         if (this.zrecznosc<=10){

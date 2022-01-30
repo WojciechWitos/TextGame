@@ -9,14 +9,14 @@ public class Mage extends Hero{
         this.exp = 0;
         this.tworzenie();
         this.phisicalDamage = this.sila;
-        this.magicDamage = this.inteligencja*5;
-        this.maxHealth = this.witalnosc*5;
-        this.currentHealth = this.witalnosc*5;
+        this.magicDamage = this.inteligencja*2;
+        this.maxHealth = this.witalnosc*3;
+        this.currentHealth = this.witalnosc*3;
     }
     public void setMaxHealth(){
-        this.maxHealth = this.witalnosc*5;
+        this.maxHealth = this.witalnosc*3;
         this.currentHealth = this.maxHealth;
-        System.out.println("Twoje Max HP wzrosło do:" +this.maxHealth);
+        System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
     public void setInteligencja(){
         this.inteligencja ++;
@@ -32,7 +32,7 @@ public class Mage extends Hero{
 
     public void setWitalnosc(){
         this.witalnosc++;
-        this.maxHealth = this.witalnosc*5;
+        this.maxHealth = this.witalnosc*3;
         System.out.println("Witalność wzrosla do: "+this.witalnosc);
         setMaxHealth();}
 

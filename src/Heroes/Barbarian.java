@@ -8,10 +8,10 @@ public class Barbarian extends Hero{
         this.witalnosc = 4;
         this.sila = 8;
         this.exp = 0;
-        this.phisicalDamage = this.sila*5;
+        this.phisicalDamage = this.sila*3;
         this.magicDamage = this.inteligencja;
-        this.maxHealth = this.witalnosc*5;
-        this.currentHealth = this.witalnosc*5;
+        this.maxHealth = this.witalnosc*3;
+        this.currentHealth = this.witalnosc*3;
         this.tworzenie();
 
     }
@@ -21,9 +21,9 @@ public class Barbarian extends Hero{
         System.out.println("Inteligencja wzrosla do: "+this.inteligencja);
     }
     public void setMaxHealth(){
-        this.maxHealth = this.witalnosc*5;
+        this.maxHealth = this.witalnosc*3;
         this.currentHealth = this.maxHealth;
-        System.out.println("Twoje Max HP wzrosło do:" +this.maxHealth);
+        System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
     public void setWitalnosc(){
         this.witalnosc++;
@@ -33,7 +33,7 @@ public class Barbarian extends Hero{
 
     public void setSila(){
         this.sila++;
-        this.phisicalDamage = this.sila*5;
+        this.phisicalDamage = this.sila*3;
         System.out.println("Sila wzrosla do: "+this.sila);
     }
     public int getSkills(){

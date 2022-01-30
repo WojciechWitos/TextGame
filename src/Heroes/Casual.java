@@ -11,7 +11,7 @@ public class Casual extends Hero {
         this.phisicalDamage = this.sila*2;
         this.magicDamage = this.inteligencja*2;
         this.maxHealth = this.witalnosc*10;
-        this.currentHealth = this.witalnosc*3;
+        this.currentHealth = this.witalnosc*10;
         this.tworzenie();
 
     }
@@ -33,7 +33,7 @@ public class Casual extends Hero {
     public void setMaxHealth(){
         this.maxHealth = this.witalnosc*10;
         this.currentHealth = this.maxHealth;
-        System.out.println("Twoje Max HP wzrosło do:" +this.maxHealth);
+        System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
 
     public int getSkills(){

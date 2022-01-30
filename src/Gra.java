@@ -13,10 +13,15 @@ public class Gra {
         kreator();
         dodajPunkty(lvl);
         stage1();
+        wait(2000);
         stage2();
+        wait(2000);
         stage3();
+        wait(2000);
         stage4();
+        wait(2000);
         stage5();
+        wait(2000);
         stage6();
 
     }
@@ -28,52 +33,84 @@ public class Gra {
         System.out.println("Zaraz po tym, gdy twoje oczy przywykły do blasku pomieszczenia widzisz potwora.");
         wait(2000);
         System.out.println("Zastygasz z przerażenia, a potwór rzuca się na Ciebie");
-        Combat combat4 = new Combat(Postac, sixthEnemy);
-        int result = combat4.Fight();
+        Combat combat6 = new Combat(Postac, sixthEnemy);
+        int result = combat6.Fight();
         wait(2000);
         System.out.println("Jednak zostawię Cię mojemu Panu na przekąskę, macie pewne sprawy do wyrównania.");
         System.out.println("W tem w miejsce demona pojawia się znajoma Ci postać, lecz czujesz bijącą od niej aurę.");
         System.out.println("Aurę złowrogości, rządzy mordu.");
         System.out.println("Pot spływa po policzkach a kolana uginają się pod ciężarem twojego ciała.");
         System.out.println("Ukazuje się on, twój pierwszy przeciwnik.");
+        wait(5000);
+        System.out.println("A więc liczyłeś, że więcej sie nie spotkamy?");
+        System.out.println("Może i na początko labiryntu spotkałeś mnie słabego, ale tutaj, oj tutaj to ja mam władzę!");
+        System.out.println("Słyszysz jak Slime rechocze głośno.");
+        System.out.print("Swoją drogą jak masz na imię moja przyszła ofiaro?");
+        wait(2000);
+        System.out.println("1. Przedstaw się");
+        System.out.println("2. Szykujesz się do walki i atakujesz potwora");
+        System.out.println("3. Nie ogarniasz co się w ogóle dzieje.");
+        question = Hero.odp3();
 
-
+        switch (question) {
+            case 1:
+                System.out.println("Jestem "+Postac.getName()+" twój najgorszy koszmar!!!");
+                Postac.setPurity(+10);
+                for (int i=0; i<10;i++) {
+                    Postac.setSila();
+                    Postac.setWitalnosc();
+                    Postac.setInteligencja();
+                    Postac.setWitalnosc();
+                }
+            case 2:
+                Postac.setPurity(5);
+                Postac.setInteligencja();
+                Postac.setWitalnosc();
+            default:
+                Postac.currentHealth-=10;
+        }
+        System.out.println("A więc stańmy do walki!");
+        Slime2 finalBoss = new Slime2("Płonący król piekieł",300,300,20,0,0,0);
+        Combat combat7 = new Combat(Postac,finalBoss);
+        result = combat7.Fight();
         if (result == 2) {
             for(int i=0; i<10;i++) {
                 addPoint();
             }
             Postac.currentHealth = Postac.maxHealth;
-            System.out.println("Postać pada na twarz, uśmiechając się szyderczo mówi:");
-            System.out.println("Na końcu czeka Cię śmierć, śmierć i tylko śmierć, mój Pan nie zna litości!");
-            System.out.println("To ostatnia chwila, abyś mógł uciec.");
+            System.out.println("Pokonawszy potwora, wiesz, że to już koniec twojej podróży.");
+            System.out.println("Teraz zostaniesz osądzony w zależności od twoich poczynań.");
             wait(2000);
-            question = Hero.odp3();
-            System.out.println("1. Przechodzisz omijajac powoli demona w strachu przed możliwymi klątwami.");
-            System.out.println("2. Kopiesz demona i przesz przed siebie");
-            System.out.println("3. Przerażony uciekasz w popłochu.");
+            if (Postac.purity<0){
+                System.out.println("Za nieczyste poczynania nie czeka Cię żadna nagroda, lecz uchodzisz wolno z Wielkiego Labiryntu.");
+                System.exit(0);
+            }
+            else if(Postac.purity>=0 && Postac.purity<10){
+                System.out.println("Czujesz jak niebiańskie światło spływa na Ciebie a twoim oczom ukazuje się anioł.");
+                System.out.println("Otrzymujesz od niego dodatkowe zdolnosci o których inni bohaterowie mogliby pomarzyć.");
+                System.out.println("Opuszczasz wielki labirynt jako zwycięzca i od tej pory prowadzisz spokojne życie.");
+                System.exit(0);
+            }
+            else{
+                System.out.println("Zstąpił anioł z nieba i obdarował Cię trzema życzeniami, które spełni dla Ciebie.");
+                System.out.println("Nie ma żadnych ograniczeń, więc żądasz nieskończonych życzeń.");
+                System.out.println("Opuszczasz Wielki Labirynt jako nowy PAN tego świata.");
+                System.exit(0);
 
-            switch (question) {
-                case 1:
-                    Postac.setPurity(-5);
-                    Postac.setSila();
-                    Postac.setWitalnosc();
-                case 2:
-                    Postac.setPurity(5);
-                    Postac.setInteligencja();
-                    Postac.setWitalnosc();
-                default:
-                    System.exit(0);
             }
         }
         else if (result == 1) {
-            System.out.println("Koniec się zbliża, pocieszasz się myślą, że bestia z którą walczyłeś umarła.");
-            System.out.println("Jednak nie do końca, słyszysz od niej słowa: ");
-            System.out.println("Jestem: "+fifthEnemy.getName()+" zginąć z twoich rąk.");
+            System.out.println("Slime pada, a Ty wydajesz ostatnie tchnienie.");
+            System.out.println("Ostatecznie zostałeś pokonany i twój los został przypieczętowany.");
+            System.out.println("Jednak jesteś dumny, że zginąłeś z rąk potężnego potwora.");
+            System.exit(0);
 
 
         } else {
-            System.out.println("Tak blisko celu, wręcz o krok od opuszczenia tego piekielnego miejsca.");
-            System.out.println("Niestety, kończy się tu i teraz twoja przygoda, odchodzisz z tego świata z łzami w oczach.");
+            System.out.println("Już byłeś tak blisko, niestety, niepodołałeś.");
+            System.out.println("Rechocząco Slime łapie Cię za nogę i mówi:");
+            System.out.println("Jestem tym, który Cię pokonał "+finalBoss.getName()+ " zawsze wygrywa.");
+            System.out.println("Zostajesz pożarty i ostatecznie opuszczasz ten świat.");
             System.exit(0);
         }
     }
@@ -90,8 +127,8 @@ public class Gra {
         System.out.println("A słyszałeś może powiedzenie, że ciekawość to pierwszy stopień do piekła?:)");
 
         System.out.println("Szykuj się do walki, jeżeli chcesz przejść dalej!");
-        Combat combat4 = new Combat(Postac, fifthEnemy);
-        int result = combat4.Fight();
+        Combat combat5 = new Combat(Postac, fifthEnemy);
+        int result = combat5.Fight();
         if (result == 2) {
             for(int i=0; i<10;i++) {
                 addPoint();
@@ -101,11 +138,10 @@ public class Gra {
             System.out.println("Na końcu czeka Cię śmierć, śmierć i tylko śmierć, mój Pan nie zna litości!");
             System.out.println("To ostatnia chwila, abyś mógł uciec.");
 
-            question = Hero.odp3();
             System.out.println("1. Przechodzisz omijajac powoli demona w strachu przed możliwymi klątwami.");
             System.out.println("2. Kopiesz demona i przesz przed siebie");
             System.out.println("3. Przerażony uciekasz w popłochu.");
-
+            question = Hero.odp3();
             switch (question) {
                 case 1:
                     Postac.setPurity(-5);
@@ -116,13 +152,14 @@ public class Gra {
                     Postac.setInteligencja();
                     Postac.setWitalnosc();
                 default:
-                    System.exit(0);
+                    Postac.setPurity(2);
             }
         }
         else if (result == 1) {
             System.out.println("Koniec się zbliża, pocieszasz się myślą, że bestia z którą walczyłeś umarła.");
             System.out.println("Jednak nie do końca, słyszysz od niej słowa: ");
             System.out.println("Jestem: "+fifthEnemy.getName()+" zginąć z twoich rąk.");
+            System.exit(0);
 
 
         } else {
@@ -137,6 +174,7 @@ public class Gra {
         int question;
         Eagle thirdEnemy = new Eagle("Latająca bestia", 120, 150, 20, 0, 0, 0);
         System.out.println("Po odejściu od zwłok nagle słyszysz jakby coś krązyło i skrzeczało pod sufitem.");
+        wait(3000);
         System.out.println("Po chwili widzisz wielkiego orła pikującego w Twoim kierunku z wygłodniałym wściekłym wzrokiem.");
         System.out.println("Okazało się ze wilk którego spożywasz chwile wcześniej pożywił sie jajami orlicy,która nie jest zadowolona i obwinia Ciebie za skonsumowanie jej potomstywa.");
         System.out.println("Dodatkowo nie widziała świeżego mięsa od pół roku..");
@@ -149,11 +187,13 @@ public class Gra {
             Postac.currentHealth = Postac.maxHealth;
             System.out.println("Ptaszysko pada martwe u twych stóp");
 
-            question = Hero.odp3();
+
+
 
             System.out.println("1. Postanawiasz wyrwac piura ze zwłok orła umieszczając je w swoim ubiorze.");
             System.out.println("2. Podpalasz kolejną ofiarę, nie chcąc aby zapach jej zwłok sprowadził kolejne kłopoty.");
             System.out.println("3. Uciekasz czym prędzej.");
+            question = Hero.odp3();
             wait(2000);
             switch (question) {
                 case 1:
@@ -173,7 +213,7 @@ public class Gra {
         else if (result == 1) {
             System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
             System.out.println("Wielki bohater poległ na czwartej przeszkodzie, niedaleko swego celu, widząc nieopodal drzwi.");
-
+            System.exit(0);
         } else {
             System.out.println("Zaszedłeś już tak daleko, wiedziałeś, że twoja podróż już miała się niedługo zakończyć.");
             System.out.println("Niestety, kończy się tu i teraz, odchodzisz z tego świata z łzami w oczach.");
@@ -189,7 +229,9 @@ public class Gra {
         System.out.println("Tak czy owak, musisz go pokonać, więc:");
         System.out.println("1. Szykujesz się do bitwy");
         System.out.println("2. Próbujesz wyminąć przeciwnika");
+
         int question = Hero.odp2();
+
         System.out.println(question);
         switch (question) {
             case 1:
@@ -210,12 +252,11 @@ public class Gra {
             Postac.currentHealth = Postac.maxHealth;
             System.out.println("Wilk wyje po raz ostatni, a Ty dobijasz go ostatnim ciosem.");
 
-
-            question = Hero.odp3();
-
             System.out.println("1. Postanawiasz zjeść zwłoki swego przeciwnika bez zastanowienia.");
             System.out.println("2. Opiekasz wilka, po czym konsumujesz go powoli zostawiając prowiant na później");
             System.out.println("3. Niegodne jest jedzenie takiej bestii, podpalasz ją dając jej godne odejście z tego świata.");
+
+            question = Hero.odp3();
             switch (question) {
                 case 1:
                     System.out.println("Nie mając zbyt dużego wyboru spożywasz surowe wilcze mięso.");
@@ -229,7 +270,7 @@ public class Gra {
         else if (result == 1) {
             System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
             System.out.println("Wielki bohater poległ na trzeciej przeszkodzie, niedaleko swego celu");
-
+            System.exit(0);
         } else {
             System.out.println("Zaszedłeś już tak daleko, wiedziałeś, że twoja podróż już miała się niedługo zakończyć.");
             System.out.println("Niestety, kończy się tu i teraz, odchodzisz z tego świata z łzami w oczach.");
@@ -247,7 +288,10 @@ public class Gra {
         System.out.println("W pewnym momencie słyszysz jakby skrobanie i ku Twojemu zdziwiniu ukazuje Ci się coś co wygląda na przeośnietą gąsienice polączona z skolopendrą");
         System.out.println("1. Szykujesz się do bitwy");
         System.out.println("2. Stoisz sparaliżowany ze strachu");
+
         int question = Hero.odp2();
+
+
         System.out.println(question);
         switch (question) {
             case 1:
@@ -271,11 +315,12 @@ public class Gra {
             System.out.println("Umierając potwór wydaje ostatnie słowa:");
             System.out.println("Mój Paaaaaan. Pssssss.... Cię Pokonaaaaaa...");
             wait(2000);
-            question = Hero.odp3();
+
 
             System.out.println("1. To jeszcze się okaże- uśmiechasz się i ruszasz przed siebie.");
             System.out.println("2. Z przerażeniem patrzysz na swojego przeciwnika, cicho próbując przedz na przód.");
             System.out.println("3. Wzdychasz lekko i maszerujesz przed siebie.");
+            question = Hero.odp3();
             switch (question) {
                 case 1:
                     Postac.setPurity(1);
@@ -287,7 +332,7 @@ public class Gra {
         } else if (result == 1) {
             System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
             System.out.println("Wielki bohater poległ na drugiej przeszkodzie.");
-
+            System.exit(0);
         } else {
             System.out.println("Jako bohater, który dopiero pokonał pierwszego przeciwnika odchodzisz w zaświaty bez sławy i chwały.");
             System.out.println("Aż prosi się o słowa 'Tak bardzo się starałeś, lecz z gry wyleciałeś :) '");
@@ -345,11 +390,12 @@ public class Gra {
             Postac.currentHealth = Postac.maxHealth;
             System.out.println("Jeszcze tu wrócę! BLOOOOP!");
             System.out.println("Slime rozpływa się i znika w powietrzu.");
+            wait(2000);
 
         } else if (result == 1) {
             System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
             System.out.println("Wielki bohater poległ już na pierwszej przeszkodzie.");
-
+            System.exit(0);
         } else {
             System.out.println("Jako bohater, który dopiero zaczął swoją przygodę odchodzisz w zaświaty bez sławy i chwały.");
             System.out.println("Aż prosi się o słowa 'Tak bardzo się starałeś, lecz z gry wyleciałeś :) '");
