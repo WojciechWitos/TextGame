@@ -21,17 +21,12 @@ public class Combat {
             System.out.println(Potwor.getHealth());
         }
         if (Postac.getHealth()>0) {
-            System.out.println("Pokonałeś " + Potwor.getName() + " otrzymując skill point.");
-            return 1;
+            return 2;
         }
         else if (Postac.getHealth()<=0 && Potwor.getHealth()<=0){
-            System.out.println("W ferworze walki upadasz wraz ze swoim przeciwnikiem.");
-            System.out.println("Oboje wydajecie ostatnie tchnienie i odchodzicie z tego świata.");
-            return 0;
+            return 1;
             }
         else{
-            System.out.println(Potwor.getName()+" spogląda na Ciebie, przegranego.");
-            System.out.println("Pożera Cię, a Ty odchodzisz z tego świata.");
             return 0;
         }
     }

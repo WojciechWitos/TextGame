@@ -62,10 +62,16 @@ public class Gra{
         Combat combat1= new Combat(Postac,firstEnemy);
 
         int result = combat1.Fight();
-        if (result==1){
+        if (result==2){
             addPoint();
             Postac.currentHealth = Postac.maxHealth;
             System.out.println("Jeszcze tu wrócę! BLOOOOP!");
+            System.out.println("Slime rozpływa się i znika w powietrzu.");
+        }
+        else if (result == 1){
+            System.out.println("Ty i twój przeciwnik leżycie na przeciw siebie, wydajecie ostatnie tchnienie.");
+            System.out.println("Wielki bohater poległ już na pierwszej przeszkodzie.");
+
         }
         else{
             System.exit(0);
