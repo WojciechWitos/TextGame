@@ -22,17 +22,22 @@ public class Gra {
     }
     public static void stage6() {
         int question;
-        LittleDemon fifthEnemy = new LittleDemon("Lilith -Świetlisty Demon", 180, 200, 15, 0, 0, 0);
-        System.out.println("Pokonałeś ostatniego wroga, czujesz jak ciepłe światło ogrzewa twe policzki.");
-        System.out.println("Widzisz rozświetlone drzwi, zbliżasz się do nich, a pewna postura zakrywa blask.");
-        System.out.println("Twoim oczom pojawia się humanoidalna postać.");
+        PureEvil sixthEnemy = new PureEvil("Diavola", 1, 200, 15, 0, 0, 0);
+        System.out.println("Lilith odeszła, więc ze spokojem przechodzisz przez drzwi licząc na chwilę wytchnienia.");
+        System.out.println("Niestety, życie w tym labiryncie nie jest tak proste.");
+        System.out.println("Zaraz po tym, gdy twoje oczy przywykły do blasku pomieszczenia widzisz potwora.");
         wait(2000);
-        System.out.println("Cześć, jestem Lilith, wysłannik piekieł, zapewne interesuje Cię co jest za drzwiami. ");
-        System.out.println("A słyszałeś może powiedzenie, że ciekawość to pierwszy stopień do piekła?:)");
-
-        System.out.println("Szykuj się do walki, jeżeli chcesz przejść dalej!");
-        Combat combat4 = new Combat(Postac, fifthEnemy);
+        System.out.println("Zastygasz z przerażenia, a potwór rzuca się na Ciebie");
+        Combat combat4 = new Combat(Postac, sixthEnemy);
         int result = combat4.Fight();
+        wait(2000);
+        System.out.println("Jednak zostawię Cię mojemu Panu na przekąskę, macie pewne sprawy do wyrównania.");
+        System.out.println("W tem w miejsce demona pojawia się znajoma Ci postać, lecz czujesz bijącą od niej aurę.");
+        System.out.println("Aurę złowrogości, rządzy mordu.");
+        System.out.println("Pot spływa po policzkach a kolana uginają się pod ciężarem twojego ciała.");
+        System.out.println("Ukazuje się on, twój pierwszy przeciwnik.");
+
+
         if (result == 2) {
             for(int i=0; i<10;i++) {
                 addPoint();
@@ -41,7 +46,7 @@ public class Gra {
             System.out.println("Postać pada na twarz, uśmiechając się szyderczo mówi:");
             System.out.println("Na końcu czeka Cię śmierć, śmierć i tylko śmierć, mój Pan nie zna litości!");
             System.out.println("To ostatnia chwila, abyś mógł uciec.");
-
+            wait(2000);
             question = Hero.odp3();
             System.out.println("1. Przechodzisz omijajac powoli demona w strachu przed możliwymi klątwami.");
             System.out.println("2. Kopiesz demona i przesz przed siebie");
