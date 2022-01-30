@@ -1,6 +1,6 @@
 package Heroes;
 import java.util.Scanner;
-public class Hero {
+public abstract class Hero {
     static Scanner scanner = new Scanner(System.in);
     String name;
     public int inteligencja, zrecznosc, witalnosc, sila, exp, purity,phisicalDamage,magicDamage,maxHealth,currentHealth;

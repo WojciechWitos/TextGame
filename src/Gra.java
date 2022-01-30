@@ -6,7 +6,7 @@ import java.lang.Thread;
 public class Gra {
     static Hero Postac;
     static Scanner scanner = new Scanner(System.in);
-    int result;
+
 
     public static void main(String[] args) {
         int lvl = poziom_Trudnosci();
@@ -404,7 +404,7 @@ public class Gra {
 
     }
 
-    public static void wait(int liczba) {
+    public static void wait(int liczba){
         try {
             Thread.sleep(2000);
         }
