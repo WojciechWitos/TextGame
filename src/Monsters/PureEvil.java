@@ -10,6 +10,7 @@ public class PureEvil extends Monster {
         super(name, currentHealth, maxHealth, attack, armor, magicResistance);
         this.lvlEnemy=lvlStage;
     }
+    @Override
     public int getSkills(){
         int randomAttack = random.nextInt(1,3);
         if (randomAttack ==1){

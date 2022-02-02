@@ -12,7 +12,7 @@ public class Worm extends Monster {
         this.lvlEnemy = lvlStage;
     }
 
-
+    @Override
     public int getSkills(){
         int randomAttack = random.nextInt(1,3);
         if (randomAttack ==1){

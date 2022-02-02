@@ -13,6 +13,7 @@ public abstract class Hero {
         this.exp = 0;
         this.purity = 0;
     }
+
     public String getName(){
         return this.name;
     }

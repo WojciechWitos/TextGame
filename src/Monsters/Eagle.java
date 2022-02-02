@@ -9,7 +9,7 @@ public class Eagle extends Monster {
 
 
     }
-
+    @Override
         public int getSkills(){
             int randomAttack = random.nextInt(1,4);
             if (randomAttack ==1){

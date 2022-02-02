@@ -9,6 +9,7 @@ public class Slime2 extends Monster {
 
 
     }
+    @Override
     public int getSkills(){
         int randomAttack = random.nextInt(1,3);
         if (randomAttack ==1){

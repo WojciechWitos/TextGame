@@ -10,6 +10,7 @@ public class LittleDemon extends Monster {
 
 
     }
+    @Override
     public int getSkills(){
         int randomAttack = random.nextInt(1,5);
         if (randomAttack ==1){

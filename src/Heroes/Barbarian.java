@@ -15,27 +15,31 @@ public class Barbarian extends Hero{
         this.tworzenie();
 
     }
+    @Override
     public void setInteligencja(){
         this.inteligencja ++;
         this.magicDamage = this.inteligencja;
         System.out.println("Inteligencja wzrosla do: "+this.inteligencja);
     }
+
     public void setMaxHealth(){
         this.maxHealth = this.witalnosc*3;
         this.currentHealth = this.maxHealth;
         System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
+    @Override
     public void setWitalnosc(){
         this.witalnosc++;
         System.out.println("Witalność wzrosla do: "+this.witalnosc);
         setMaxHealth();
     }
-
+    @Override
     public void setSila(){
         this.sila++;
         this.phisicalDamage = this.sila*3;
         System.out.println("Sila wzrosla do: "+this.sila);
     }
+    @Override
     public int getSkills(){
         if (this.sila<=10){
             System.out.println("1. Dźgnięcie nożem: "+this.phisicalDamage);

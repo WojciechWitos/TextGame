@@ -13,29 +13,31 @@ public class Mage extends Hero{
         this.maxHealth = this.witalnosc*3;
         this.currentHealth = this.witalnosc*3;
     }
+
     public void setMaxHealth(){
         this.maxHealth = this.witalnosc*3;
         this.currentHealth = this.maxHealth;
         System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
+    @Override
     public void setInteligencja(){
         this.inteligencja ++;
         this.magicDamage = this.inteligencja*5;
         System.out.println("Inteligencja wzrosla do: "+this.inteligencja);
     }
-
+    @Override
     public void setSila() {
         this.sila++;
         this.phisicalDamage = this.sila;
         System.out.println("Sila wzrosla do: " + this.sila);
     }
-
+    @Override
     public void setWitalnosc(){
         this.witalnosc++;
         this.maxHealth = this.witalnosc*3;
         System.out.println("Witalność wzrosla do: "+this.witalnosc);
         setMaxHealth();}
-
+    @Override
     public int getSkills(){
         if (this.inteligencja<=10){
             System.out.println("1. Dźgnięcie nożem: "+this.phisicalDamage);

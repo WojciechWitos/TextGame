@@ -15,27 +15,31 @@ public class Casual extends Hero {
         this.tworzenie();
 
     }
+    @Override
     public void setWitalnosc(){
         this.witalnosc++;
         System.out.println("Witalność wzrosla do: "+this.witalnosc);
         setMaxHealth();
     }
+    @Override
     public void setInteligencja(){
         this.inteligencja ++;
         this.magicDamage = this.inteligencja*2;
         System.out.println("Inteligencja wzrosla do: "+this.inteligencja);
     }
+    @Override
     public void setSila() {
         this.sila++;
         this.phisicalDamage = this.sila * 2;
         System.out.println("Sila wzrosla do: " + this.sila);
     }
+
     public void setMaxHealth(){
         this.maxHealth = this.witalnosc*10;
         this.currentHealth = this.maxHealth;
         System.out.println("Twoje Max HP wzrosło do: " +this.maxHealth);
     }
-
+    @Override
     public int getSkills(){
         if (this.witalnosc<=10){
             System.out.println("1. Dźgnięcie nożem: "+this.phisicalDamage);
