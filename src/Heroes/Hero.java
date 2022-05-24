@@ -44,6 +44,7 @@ public abstract class Hero {
     public int getHealth(){
         return this.currentHealth;
     }
+
     public int getSkills(){
         System.out.println("Skills not defined");
         return 0;

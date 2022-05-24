@@ -20,10 +20,7 @@ public class Slime extends Monster {
             System.out.println("Slime napina się i uderza Cię całą swoją siłą zadając 5 obrażeń.");
             return 5;
         }
-
-
     }
-
 }
 
 

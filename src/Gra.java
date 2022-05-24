@@ -301,9 +301,6 @@ public class Gra {
                 System.out.println("Przeciwnik rzuca się na Ciebie, a Ty nieprzygotowany stawiasz mu czoła");
         }
 
-
-
-
         System.out.println("Potwór rzuca się na Ciebie i rozpoczyna się walka!");
         System.out.println("Niech rozpocznie się walka!");
         Combat combat2 = new Combat(Postac, secondEnemy);
